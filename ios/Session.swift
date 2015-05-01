@@ -107,7 +107,7 @@ class Session {
 
     func toggleMute(mute: Bool) {
         for item in self.stream!.audioTracks {
-            let track = item as RTCAudioTrack
+            let track = item as! RTCAudioTrack
             track.setEnabled(!mute)
         }
     }
