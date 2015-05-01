@@ -16,6 +16,7 @@
         <clobbers target="cordova.plugins.phonertc" />
     </js-module>
     <js-module name="mediahandler" src="mediaHandler.js" />
+    <js-module name="oldmediahandler" src="mediaHandlerOld-0.6.4.js" />
     
     <platform name="ios">
         <info>
