@@ -1,0 +1,17 @@
+{
+  "name": "PhoneRTCMediaHandler",
+  "main": "mediaHandler.js",
+  "version": "1.0",
+  "homepage": "https://github.com/BetterVoice/iOS-SIP.js",
+  "authors": [
+    "Thomas Quintana <thomas@bettervoice.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
