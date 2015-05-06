@@ -8,7 +8,7 @@
  * @param {SIP.Session} session
  * @param {Object} [options]
  */
-module.exports = function(SIP) {
+//module.exports = function(SIP) {
 	/**
 	 * Implements the PhoneRTC media handler constructor.
 	 */
@@ -178,5 +178,5 @@ module.exports = function(SIP) {
 	});
 
 	// Return the PhoneRTC media handler implementation.
-	return PhoneRTCMediaHandler;
-};
+	//return PhoneRTCMediaHandler;
+//};

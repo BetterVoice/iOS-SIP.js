@@ -8,11 +8,11 @@
  * @param {SIP.Session} session
  * @param {Object} [options]
  */
-module.exports = function(SIP) {
+//module.exports = function(SIP) {
 	/**
 	 * Implements the PhoneRTC media handler constructor.
 	 */
-	var PhoneRTCOldMediaHandler = function(session, options) {
+	var PhoneRTCMediaHandlerLegacy = function(session, options) {
 		// Create a logger.
   	window.console.log('Loading the PhoneRTC 2.0 Media Handler.');
 
@@ -29,7 +29,7 @@ module.exports = function(SIP) {
   	};
 	}
 
-	PhoneRTCOldMediaHandler.prototype = Object.create(SIP.MediaHandler.prototype, {
+	PhoneRTCMediaHandlerLegacy.prototype = Object.create(SIP.MediaHandler.prototype, {
 		/**
 		 * render() is called by sip.js so it must be defined.
 		 */
@@ -174,5 +174,5 @@ module.exports = function(SIP) {
 	});
 
 	// Return the PhoneRTC media handler implementation.
-	return PhoneRTCOldMediaHandler;
-};
+	//return PhoneRTCMediaHandlerLegacy;
+//};
