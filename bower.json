@@ -1,6 +1,9 @@
 {
   "name": "PhoneRTCMediaHandler",
-  "main": "mediaHandler.js",
+  "main": [
+    "mediaHandler.js",
+    "mediaHandlerLegacy-0.6.4.js"
+  ],
   "version": "1.0",
   "homepage": "https://github.com/BetterVoice/iOS-SIP.js",
   "authors": [
