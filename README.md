@@ -1,5 +1,7 @@
 # iOS-SIP.js
-This is everything you need to get SIP.js running on iOS. Background incoming calls, Transfer, Hold, Mute, all working.
+This is everything you need to get SIP.js running on iOS. Background incoming calls, Transfer, Hold, Mute, all working. 
+
+NOTE: SIP.js Video is not supported by this plugin at this time. Only Audio works.
 
 # Installation
 
