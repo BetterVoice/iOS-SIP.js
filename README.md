@@ -4,7 +4,7 @@ This is everything you need to get SIP.js running on iOS. Background incoming ca
 # Installation
 
  - Add the plugin to your Cordova project. (cordova plugin add https://github.com/BetterVoice/iOS-SIP.js.git)
- - Follow the instructions printed to your shell console after the plugin installation finishes. You will need to add the WebRTC libs to your project. We provide precompiled libs in the instructions.
+ - Follow the instructions printed to your shell console after the plugin installation finishes. You will need to add the WebRTC libs to your project. We provide precompiled libs in the instructions: http://s3.bettervoice.com/webrtclibs/webrtc-ios-unified.a (supports x86+arm)
  - Configure your SIP.js project to use the media handler provided by this plugin, instead of the default SIP.js media handler.
  
 # Example Usage
