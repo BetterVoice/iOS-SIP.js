@@ -13,7 +13,7 @@ NOTE: SIP.js Video is not supported by this plugin at this time. Only Audio work
 
 You need to configure your SIP.js User Agent to use the custom media handler provided by this plugin when the environment is iOS + Cordova. See below for an example.
 
-```
+```javascript
         window.ua = new SIP.UA({
           traceSip: false,
           log: {
