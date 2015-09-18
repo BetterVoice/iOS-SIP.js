@@ -81,19 +81,26 @@ class SessionDescriptionDelegate : UIResponder, RTCSessionDescriptionDelegate {
                         "sdp": self.patchSessionDescription(sdp.description)
                     ]
                     var jsonError: NSError?
-                    let data = NSJSONSerialization.dataWithJSONObject(json,
-                        options: NSJSONWritingOptions.allZeros,
-                        error: &jsonError)
+                    let data: NSData?
+                    do {
+                        data = try NSJSONSerialization.dataWithJSONObject(json,
+                                                options: NSJSONWritingOptions())
+                    } catch var error as NSError {
+                        jsonError = error
+                        data = nil
+                    } catch {
+                        fatalError()
+                    }
                     if let message = data {
                         self.session.send(data!)
                     } else {
                         if let serializationError = jsonError {
-                            println("ERROR: \(serializationError.localizedDescription)")
+                            print("ERROR: \(serializationError.localizedDescription)")
                         }
                     }
                 }
             } else {
-                println("ERROR: \(error.localizedDescription)")
+                print("ERROR: \(error.localizedDescription)")
             }
     }
     
@@ -108,7 +115,7 @@ class SessionDescriptionDelegate : UIResponder, RTCSessionDescriptionDelegate {
                     }
                 }
             } else {
-                println("ERROR: \(error.localizedDescription)")
+                print("ERROR: \(error.localizedDescription)")
             }
     }
 }
