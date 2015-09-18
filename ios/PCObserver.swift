@@ -37,16 +37,20 @@ class PCObserver : NSObject, RTCPeerConnectionDelegate {
             "candidate": candidate.sdp
         ]
         var error: NSError?
-        let data = NSJSONSerialization.dataWithJSONObject(json,
-            options: NSJSONWritingOptions.allZeros,
-            error: &error
-        )
+        let data: NSData?
+        do {
+            data = try NSJSONSerialization.dataWithJSONObject(json,
+                        options: NSJSONWritingOptions())
+        } catch var error1 as NSError {
+            error = error1
+            data = nil
+        }
         // Try to dispatch the serialized event to the js engine.
         if let message = data {
             self.session.send(message)
         } else {
             if let jsonError = error {
-                println("ERROR: \(jsonError.localizedDescription)")
+                print("ERROR: \(jsonError.localizedDescription)")
             }
         }
     }
