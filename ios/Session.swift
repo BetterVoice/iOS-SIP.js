@@ -71,12 +71,17 @@ class Session {
     func receive(message: String) {
         // Parse the incoming message.
         var error : NSError?
-        let data : AnyObject? = NSJSONSerialization.JSONObjectWithData(
-            message.dataUsingEncoding(NSUTF8StringEncoding)!,
-            options: NSJSONReadingOptions.allZeros,
-            error: &error)
+        let data : AnyObject?
+        do {
+            data = try NSJSONSerialization.JSONObjectWithData(
+                        message.dataUsingEncoding(NSUTF8StringEncoding)!,
+                        options: NSJSONReadingOptions())
+        } catch var error1 as NSError {
+            error = error1
+            data = nil
+        }
         if let object: AnyObject = data {
-            println("INFO: \(object)")
+            print("INFO: \(object)")
             // If the message has a type of answer or offer try to handle it.
             if let type = object.objectForKey("type") as? String {
                 switch type {
@@ -90,12 +95,12 @@ class Session {
                                                                                  sessionDescription: sdp!)
                         }
                     default:
-                        println("ERROR: Invalid message \(message)")
+                        print("ERROR: Invalid message \(message)")
                 }
             }
         } else {
             if let parseError = error {
-                println("ERROR: \(parseError.localizedDescription)")
+                print("ERROR: \(parseError.localizedDescription)")
             }
             return
         }
