@@ -32,7 +32,7 @@ In order to install PhoneRTC on iOS, please follow these steps:
 3) In `General`, change `Deployment Target` to 7.0 or above
 4) Go to `Build Settings` and change:
 
-      `Valid Architectures` => armv7
+      `Valid Architectures` => armv7 + arm64 (no armv7s)
       `Build Active Architecture Only` => No
       `Objective-C Bridging Header` => 
            [ProjectName]/Plugins/com.bettervoice.phonertc/Bridging-Header.h
