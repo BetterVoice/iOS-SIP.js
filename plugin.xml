@@ -39,6 +39,7 @@ In order to install PhoneRTC on iOS, please follow these steps:
       `Swift Optimization Level` => -Onone
       `Runpath Search Paths` => 
            $(inherited) @executable_path/Frameworks
+       `Enable Bitcode` => No
 
 5) Repeat step #4 for the CordovaLib project
 6) Download the WebRTC unified (32 & 64 bit) framework lib from:
