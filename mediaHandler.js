@@ -155,7 +155,7 @@ PhoneRTCMediaHandler.prototype = Object.create(SIP.MediaHandler.prototype, {
           }
           // Start the watchdog.
           watchdog = setTimeout(function() {
-            resolve();
+            resolve(phonertc.sdp);
           }, 500);
         }
       });
