@@ -131,6 +131,7 @@ PhoneRTCMediaHandlerLegacy.prototype = Object.create(SIP.MediaHandler.prototype,
     phonertc.session = new cordova.plugins.phonertc.Session({
       isInitiator: phonertc.role === 'caller'
     });
+    var candidates = '';
     phonertc.session.on('sendMessage', function (data) {
       if(data.type === 'offer' || data.type === 'answer') {
         phonertc.sdp = data.sdp;
@@ -146,11 +147,12 @@ PhoneRTCMediaHandlerLegacy.prototype = Object.create(SIP.MediaHandler.prototype,
         // Append the candidate to the SDP.
         var candidate = "a=" + data.candidate + "\r\n";
         if(data.id === 'audio') {
-          phonertc.sdp += candidate;
+          candidates += candidate;
         }
         // Start the watchdog.
         watchdog = setTimeout(function() {
           if(onSuccess) {
+            phonertc.sdp += candidates;
             onSuccess(phonertc.sdp);
           }
         }, 500);
